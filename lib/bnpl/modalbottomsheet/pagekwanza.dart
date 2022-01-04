@@ -196,21 +196,28 @@ class _PageKwanzaState extends State<PageKwanza> {
       children: [
         ListTile(
             tileColor: const Color(0xFFfce7fe),
-            leading: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    currentview = 5;
-                  });
-                },
-                child: Icon(
-                  FontAwesomeIcons.backward,
-                )),
             title: PiliDojoPay(),
             trailing: GestureDetective()),
         SizedBox(
           height: size.height * 0.03,
         ),
-        Text('Please wait as we send money to your mpesa account')
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          child: Column(
+            children: [
+              Icon(
+                FontAwesomeIcons.hourglassHalf,
+                color:  const Color(0xFF5113AA),
+                size: 50,
+              ),
+              Text(
+                'Please wait as we send the money to your mpesa account',
+                style: GoogleFonts.prompt(
+                    fontSize: 25, color: const Color(0xFF5113AA)),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
@@ -375,7 +382,7 @@ class _PageKwanzaState extends State<PageKwanza> {
 
   Widget page7() {
     Size size = MediaQuery.of(context).size;
-    
+
     return Consumer<FirstNotifier>(builder: (context, firstData, child) {
       final namba = firstData.getValue;
 
@@ -424,8 +431,6 @@ class _PageKwanzaState extends State<PageKwanza> {
           ThriFaivTuBaiTu(),
           MaterialButton(
             onPressed: () {
-            
-
               setState(() {
                 currentview = 8;
               });

@@ -1,12 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pin_put/pin_put.dart';
-import 'package:provider/provider.dart';
-import 'package:saccoapp/bnpl/modalbottomsheet/provider/doubleprovider.dart';
 import 'package:saccoapp/navbar/main_bounce_tab_bar.dart';
-import 'package:saccoapp/signs/signup/provider/stringprovider.dart';
 import 'package:shimmer/shimmer.dart';
 
 enum MobileVerificationState { SHOW_MOBILE_FORM_STATE, SHOW_OTP_FORM_STATE }
@@ -36,17 +34,6 @@ class _PhoneSignupscreenState extends State<PhoneSignupscreen> {
     try {
       final authCredential =
           await _auth.signInWithCredential(phoneAuthCredential);
-
-      User? user = FirebaseAuth.instance.currentUser;
-      // await FirebaseFirestore.instance
-      //     .collection('credit')
-      //     .doc(user!.uid)
-      //     .set({'number': '254${phoneController.text}'});
-      await FirebaseFirestore.instance
-          .collection('phone')
-          .doc(user!.uid)
-          .set({'role': 'user'});
-
       setState(() {
         showLoading = false;
       });
@@ -119,8 +106,7 @@ class _PhoneSignupscreenState extends State<PhoneSignupscreen> {
             setState(() {
               showLoading = true;
             });
-            Provider.of<StringProvider>(context, listen: false)
-                .changeVal('254${phoneController.text}');
+
             await _auth.verifyPhoneNumber(
                 phoneNumber: '+254${phoneController.text}',
                 verificationCompleted: (phoneAuthCredential) async {
@@ -220,8 +206,10 @@ class _PhoneSignupscreenState extends State<PhoneSignupscreen> {
             followingFieldDecoration: pinPutDecoration,
             pinAnimationType: PinAnimationType.fade,
             focusNode: _pinPutFocusNode,
+            
           ),
         ),
+       
         SizedBox(
           height: size.height * 0.1,
         ),
@@ -233,10 +221,7 @@ class _PhoneSignupscreenState extends State<PhoneSignupscreen> {
                     smsCode: otpController.text);
             signInWithPhoneAuthCredential(phoneAuthCredential);
           },
-          child: Text(
-            'verify',
-            style: TextStyle(fontFamily: 'Trueno'),
-          ),
+          child: Text('verify',style: TextStyle(fontFamily: 'Trueno'),),
           style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
               elevation: 8.0,
@@ -246,8 +231,7 @@ class _PhoneSignupscreenState extends State<PhoneSignupscreen> {
               textStyle:
                   const TextStyle(fontSize: 21, fontWeight: FontWeight.w700),
               primary: const Color(0xFF5113AA),
-              onPrimary: Colors.white),
-        ),
+              onPrimary: Colors.white),),
         Spacer()
       ],
     );

@@ -27,7 +27,7 @@ class _BnplShoppingState extends State<BnplShopping> {
 
   late String _searchText = _controller.text;
   int mbesha = 100;
-
+  int partyB=254745347246;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -59,10 +59,9 @@ class _BnplShoppingState extends State<BnplShopping> {
             SizedBox(
               height: size.height * 0.01,
             ),
-            Consumer<StringProvider>(builder: (context, firstData, child) {
-              final namba = firstData.getValue;
-              int partyB=int.parse(namba);
-              return GestureDetector(
+        
+            
+               GestureDetector(
                 onTap: () {
                   print('touched');
                   MpepeService().pay(mbesha, partyB, context);
@@ -82,8 +81,8 @@ class _BnplShoppingState extends State<BnplShopping> {
                               fontSize: 18,
                               color: Colors.white)),
                     )),
-              );
-            }),
+              ),
+          
             SizedBox(
               height: size.height * 0.01,
             ),

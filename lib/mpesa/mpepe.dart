@@ -21,7 +21,7 @@ class MpepeService {
           print(response!.data.toString());
     } on DioError catch (e) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.message.toString())));
+          .showSnackBar(SnackBar(content: Text('Something went wrong')));
     }
   }
 }
