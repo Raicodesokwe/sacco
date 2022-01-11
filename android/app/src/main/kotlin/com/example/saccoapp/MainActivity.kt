@@ -1,4 +1,4 @@
-package com.example.saccoapp
+package com.dojosaccoapp.saccoapp
 
 import io.flutter.embedding.android.FlutterActivity
 

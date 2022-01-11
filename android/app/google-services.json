@@ -7,6 +7,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:704125466154:android:28367d7a3e66b74051b553",
+        "android_client_info": {
+          "package_name": "com.dojosaccoapp.saccoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704125466154-si9cor16g7nco6dabimj0apa29jlu635.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dojosaccoapp.saccoapp",
+            "certificate_hash": "388722e8049746698b5f82f1ebc6df6bda66951d"
+          }
+        },
+        {
+          "client_id": "704125466154-l4jg50eaa4psjgsqok58elas63ugttji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHnIPL2VljLt0WPuikPbrsg_xHHeUqMYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704125466154-l4jg50eaa4psjgsqok58elas63ugttji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:704125466154:android:6532198bd5e7345651b553",
         "android_client_info": {
           "package_name": "com.example.saccoapp"
